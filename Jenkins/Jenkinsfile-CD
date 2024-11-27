@@ -18,8 +18,8 @@ pipeline {
             steps {
               sshagent(['ec2-user']) {         // install 'ssh agent' plugin & generate 'ssh-agent' pipeline syntax generator 
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your Node Server's private IP here
-                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/deployment.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
-                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/service.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
+                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/deployment.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
+                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/service.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
               }
             }
         }
